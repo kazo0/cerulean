@@ -27,30 +27,30 @@ An agent can have up to three things:
 
 | Agent | id | Command | Always-on option | Notes |
 |---|---|---|---|---|
-| Claude Code | `claude` | `/curmudgeon bleak` (the skill itself) | `--always-on` appends a block to `CLAUDE.md` | Prefer the plugin install; `install.sh` copies the skill dir |
-| Codex CLI | `codex` | say `curmudgeon bleak` | `--always-on` appends to `AGENTS.md` (`~/.codex/AGENTS.md` with `--global`) | Codex custom prompts are deprecated in favor of skills, so no prompt file is shipped |
-| Cursor | `cursor` | `/curmudgeon bleak` (`.cursor/commands`) | `.cursor/rules/curmudgeon.mdc` with `alwaysApply: true` | Without `--always-on` the rule is `alwaysApply: false` with a description, so the agent picks it up when asked. Global scope installs the skill and command only; Cursor keeps user rules in Settings |
-| Windsurf / Devin | `windsurf` | `/curmudgeon bleak` (workflow) | `.windsurf/rules/curmudgeon.md` with `trigger: always_on` | Without `--always-on` the rule is `trigger: model_decision`. Project scope only: global rules are capped at 6,000 characters. Newer builds also read `.devin/rules/` and `.devin/workflows/` |
+| Claude Code | `claude` | `/curmudgeon glacial` (the skill itself) | `--always-on` appends a block to `CLAUDE.md` | Prefer the plugin install; `install.sh` copies the skill dir |
+| Codex CLI | `codex` | say `curmudgeon glacial` | `--always-on` appends to `AGENTS.md` (`~/.codex/AGENTS.md` with `--global`) | Codex custom prompts are deprecated in favor of skills, so no prompt file is shipped |
+| Cursor | `cursor` | `/curmudgeon glacial` (`.cursor/commands`) | `.cursor/rules/curmudgeon.mdc` with `alwaysApply: true` | Without `--always-on` the rule is `alwaysApply: false` with a description, so the agent picks it up when asked. Global scope installs the skill and command only; Cursor keeps user rules in Settings |
+| Windsurf / Devin | `windsurf` | `/curmudgeon glacial` (workflow) | `.windsurf/rules/curmudgeon.md` with `trigger: always_on` | Without `--always-on` the rule is `trigger: model_decision`. Project scope only: global rules are capped at 6,000 characters. Newer builds also read `.devin/rules/` and `.devin/workflows/` |
 | Cline | `cline` | `/curmudgeon.md` (workflow) | `.clinerules/curmudgeon.md` | Global scope writes to `~/Documents/Cline/Rules` and `Workflows` |
-| GitHub Copilot (VS Code) | `copilot` | `/curmudgeon bleak` (prompt file) | `.github/instructions/curmudgeon.instructions.md` with `applyTo: "**"` | Project scope. For Copilot CLI use `--global`, which installs the skill to `~/.copilot/skills` |
-| Gemini CLI | `gemini` | `/curmudgeon bleak` (TOML command) | `--always-on` appends to `GEMINI.md` | With `gemini` on PATH and `--global`, runs `gemini extensions install`. Otherwise copies the TOML command and skill dir |
-| Qwen Code | `qwen` | `/curmudgeon bleak` (TOML command) | `--always-on` appends to `QWEN.md` | Same shape as Gemini CLI |
-| opencode | `opencode` | `/curmudgeon bleak` (`.opencode/command`, uses `$ARGUMENTS`) | `--always-on` appends to `AGENTS.md` | |
-| Roo Code | `roo` | `/curmudgeon bleak` (`.roo/commands`) | `.roo/rules/curmudgeon.md` | |
+| GitHub Copilot (VS Code) | `copilot` | `/curmudgeon glacial` (prompt file) | `.github/instructions/curmudgeon.instructions.md` with `applyTo: "**"` | Project scope. For Copilot CLI use `--global`, which installs the skill to `~/.copilot/skills` |
+| Gemini CLI | `gemini` | `/curmudgeon glacial` (TOML command) | `--always-on` appends to `GEMINI.md` | With `gemini` on PATH and `--global`, runs `gemini extensions install`. Otherwise copies the TOML command and skill dir |
+| Qwen Code | `qwen` | `/curmudgeon glacial` (TOML command) | `--always-on` appends to `QWEN.md` | Same shape as Gemini CLI |
+| opencode | `opencode` | `/curmudgeon glacial` (`.opencode/command`, uses `$ARGUMENTS`) | `--always-on` appends to `AGENTS.md` | |
+| Roo Code | `roo` | `/curmudgeon glacial` (`.roo/commands`) | `.roo/rules/curmudgeon.md` | |
 | Kilo Code | `kilo` | `/curmudgeon.md` (workflow) | `.kilocode/rules/curmudgeon.md` | |
-| Continue | `continue` | say `curmudgeon bleak` | `.continue/rules/curmudgeon.md` with `alwaysApply: true` | Without `--always-on` the rule has `alwaysApply: false` plus a description |
-| Aider | `aider` | say `curmudgeon bleak` | Always on once read | Writes `.aider.curmudgeon.md`; pass it with `aider --read .aider.curmudgeon.md` or list it under `read:` in `.aider.conf.yml` |
-| Amp | `amp` | say `curmudgeon bleak` | `--always-on` appends to `AGENTS.md` (`~/.config/AGENTS.md` with `--global`) | |
-| Any `AGENTS.md` reader (Jules, Factory, Zed, Warp, ...) | `agents-md` | say `curmudgeon bleak` | Always on | Appends the block to `./AGENTS.md`. Project scope only |
-| Zed | `zed` | say `curmudgeon bleak` | Always on | Appends the block to `.rules` |
-| Goose | `goose` | say `curmudgeon bleak` | Always on | Appends to `.goosehints` (`~/.config/goose/.goosehints` with `--global`) |
-| JetBrains Junie | `junie` | say `curmudgeon bleak` | Always on | Appends to `.junie/guidelines.md` |
-| Trae | `trae` | say `curmudgeon bleak` | Always on | Appends to `.trae/rules/project_rules.md` |
-| Warp | `warp` | say `curmudgeon bleak` | Always on | Appends to `WARP.md` |
-| Augment | `augment` | say `curmudgeon bleak` | Always on | Writes `.augment/rules/curmudgeon.md` |
+| Continue | `continue` | say `curmudgeon glacial` | `.continue/rules/curmudgeon.md` with `alwaysApply: true` | Without `--always-on` the rule has `alwaysApply: false` plus a description |
+| Aider | `aider` | say `curmudgeon glacial` | Always on once read | Writes `.aider.curmudgeon.md`; pass it with `aider --read .aider.curmudgeon.md` or list it under `read:` in `.aider.conf.yml` |
+| Amp | `amp` | say `curmudgeon glacial` | `--always-on` appends to `AGENTS.md` (`~/.config/AGENTS.md` with `--global`) | |
+| Any `AGENTS.md` reader (Jules, Factory, Zed, Warp, ...) | `agents-md` | say `curmudgeon glacial` | Always on | Appends the block to `./AGENTS.md`. Project scope only |
+| Zed | `zed` | say `curmudgeon glacial` | Always on | Appends the block to `.rules` |
+| Goose | `goose` | say `curmudgeon glacial` | Always on | Appends to `.goosehints` (`~/.config/goose/.goosehints` with `--global`) |
+| JetBrains Junie | `junie` | say `curmudgeon glacial` | Always on | Appends to `.junie/guidelines.md` |
+| Trae | `trae` | say `curmudgeon glacial` | Always on | Appends to `.trae/rules/project_rules.md` |
+| Warp | `warp` | say `curmudgeon glacial` | Always on | Appends to `WARP.md` |
+| Augment | `augment` | say `curmudgeon glacial` | Always on | Writes `.augment/rules/curmudgeon.md` |
 | Everything else that reads Agent Skills | | depends on the agent | | `npx skills add kazo0/curmudgeon -a <agent>`; run `npx skills add --help` for the agent list |
 
-Turning it off is the same everywhere: `/curmudgeon off` where there is a command, or say "stop curmudgeon", "normal mode", or "be nice".
+Turning it off is the same everywhere: `/curmudgeon off` where there is a command, or say "stop curmudgeon" or "normal mode".
 
 ## install.sh
 

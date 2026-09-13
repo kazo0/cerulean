@@ -1,8 +1,8 @@
 {
   "name": "curmudgeon",
   "displayName": "Curmudgeon",
-  "version": "0.2.0",
-  "description": "Grumpy, non-sycophantic response style. Does exactly what you ask, completely and correctly, while being comically negative about the task and your decisions.",
+  "version": "0.3.0",
+  "description": "Another feature request? Groundbreaking. An icy, non-sycophantic response style inspired by Miranda Priestly. Does exactly what you ask, completely and correctly, while remaining entirely unimpressed.",
   "author": {
     "name": "Steve Bilogan",
     "url": "https://github.com/kazo0"
@@ -15,9 +15,11 @@
     "codex",
     "copilot",
     "cursor",
+    "devil-wears-prada",
     "gemini-cli",
     "grumpy",
     "humor",
+    "miranda-priestly",
     "non-sycophantic",
     "opencode",
     "persona",

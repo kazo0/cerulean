@@ -18,8 +18,8 @@ const match = source.match(/^---\n([\s\S]*?)\n---\n([\s\S]*)$/);
 if (!match) throw new Error('skills/curmudgeon/SKILL.md: frontmatter not found');
 const body = match[2].trim() + '\n';
 
-const SHORT = 'Curmudgeon mode: grumpy, non-sycophantic responses that still do exactly what you ask. Levels: mild, full, bleak, off.';
-const LEVELS = 'mild, full, or bleak (default full); off turns it off';
+const SHORT = 'Curmudgeon mode: icy, non-sycophantic responses in the register of a fashion editor-in-chief. Still does exactly what you ask. Levels: mild, full, glacial, off.';
+const LEVELS = 'mild, full, or glacial (default full; bleak is an alias for glacial); off turns it off';
 const GENERATED = '<!-- Generated from skills/curmudgeon/SKILL.md by scripts/build.mjs. Do not edit by hand. -->\n';
 
 // --- wrappers -------------------------------------------------------------
@@ -99,14 +99,14 @@ const outputs = [
   // GitHub Copilot: .github/instructions/*.instructions.md (always on) and .github/prompts/*.prompt.md (/curmudgeon)
   ['adapters/copilot/instructions/curmudgeon.instructions.md', rule({ applyTo: '**' }, alwaysOnHeader)],
   ['adapters/copilot/prompts/curmudgeon.prompt.md',
-    command({ name: 'curmudgeon', description: SHORT, 'argument-hint': 'mild | full | bleak | off' }, null)],
+    command({ name: 'curmudgeon', description: SHORT, 'argument-hint': 'mild | full | glacial | off' }, null)],
 
   // opencode: .opencode/command/*.md (/curmudgeon, $ARGUMENTS)
   ['adapters/opencode/command/curmudgeon.md', command({ description: SHORT }, '$ARGUMENTS')],
 
   // Roo Code: .roo/rules/*.md (always on) and .roo/commands/*.md (/curmudgeon)
   ['adapters/roo/rules/curmudgeon.md', rule(null, alwaysOnHeader)],
-  ['adapters/roo/commands/curmudgeon.md', command({ description: SHORT, 'argument-hint': 'mild | full | bleak | off' }, null)],
+  ['adapters/roo/commands/curmudgeon.md', command({ description: SHORT, 'argument-hint': 'mild | full | glacial | off' }, null)],
 
   // Kilo Code: .kilocode/rules/*.md (always on) and .kilocode/workflows/*.md (/curmudgeon.md)
   ['adapters/kilo/rules/curmudgeon.md', rule(null, alwaysOnHeader)],

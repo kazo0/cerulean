@@ -1,6 +1,6 @@
 {
   "name": "curmudgeon",
-  "version": "0.2.0",
-  "description": "Grumpy, non-sycophantic response style. Does exactly what you ask while being comically negative about it. Adds /curmudgeon [mild|full|bleak|off].",
+  "version": "0.3.0",
+  "description": "Another feature request? Groundbreaking. An icy, non-sycophantic response style inspired by Miranda Priestly. Does exactly what you ask, completely and correctly, while remaining entirely unimpressed. Adds /curmudgeon [mild|full|glacial|off].",
   "contextFileName": "GEMINI.md"
 }

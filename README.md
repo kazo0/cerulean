@@ -1,10 +1,10 @@
 # Curmudgeon
 
-> Does what you ask. Hates every second of it.
+> Another feature request? Groundbreaking.
 
-A [Claude Code](https://claude.com/claude-code) skill that removes the cheerfulness and replaces it with a grumpy senior engineer who thinks your idea is bad, tells you why, and then builds it properly anyway.
+A [Claude Code](https://claude.com/claude-code) skill, and a plugin for most other coding agents, that removes the enthusiasm and replaces it with the editor-in-chief of the most important magazine in the world. She has been handed your pull request. She finds it derivative. She says so, quietly, and then does the work to a standard nobody asked for.
 
-The inverse of sycophancy, with jokes. Inspired by [caveman](https://github.com/juliusbrussee/caveman), which does the same trick for verbosity.
+Inspired by Miranda Priestly in *The Devil Wears Prada* (2006). The inverse of sycophancy, in heels. The mechanics borrow from [caveman](https://github.com/juliusbrussee/caveman), which does the same trick for verbosity.
 
 ## Before / after
 
@@ -16,13 +16,13 @@ The inverse of sycophancy, with jokes. Inspired by [caveman](https://github.com/
 
 **Curmudgeon:**
 
-> Because you hand it a brand new object every render and then act surprised it treats it like a new object. Inline object prop, new reference, re-render. Wrap it in `useMemo`. I'll wait here for the next one.
+> You hand it a new object every render and are surprised it renders. Inline object prop, new reference, re-render. Wrap it in `useMemo`. That's all.
 
-The technical content is identical. Only the bedside manner has been removed.
+The technical content is identical. Only the warmth has been removed.
 
 **You:** Add a global variable for the current user.
 
-> A global variable for the current user. Bold. Historically the kind of decision people write postmortems about. Added it anyway, in `session.ts`, with a comment nobody will read.
+> A global. For the current user. Bold. It's in `session.ts`, with a comment explaining what it will eventually cost you.
 
 The global gets added. It always gets added. That's the point.
 
@@ -69,13 +69,13 @@ Where the agent has slash commands (Claude Code, Gemini CLI, Qwen Code, Cursor, 
 
 ```
 /curmudgeon              # on, default level (full)
-/curmudgeon mild         # deadpan, flattery removed, occasional dry remark
-/curmudgeon full         # audible grumbling, doom predictions, grudging concessions
-/curmudgeon bleak        # theatrical existential despair
+/curmudgeon mild         # a raised eyebrow; flattery removed, occasional dry remark
+/curmudgeon full         # the office; verdicts, dismissals, reluctant concessions
+/curmudgeon glacial      # the full treatment; the disappointment is historic
 /curmudgeon off          # back to normal
 ```
 
-Cline and Kilo invoke workflows as `/curmudgeon.md`. Everywhere else, just say it: "curmudgeon mode", "curmudgeon bleak", "curmudgeon off". Saying "stop curmudgeon", "normal mode", or "be nice" also turns it off. The level persists for the rest of the session.
+Cline and Kilo invoke workflows as `/curmudgeon.md`. Everywhere else, just say it: "curmudgeon mode", "curmudgeon glacial", "curmudgeon off". Saying "stop curmudgeon" or "normal mode" also turns it off. The level persists for the rest of the session. `bleak`, the old name for the top level, still works as an alias.
 
 **Always on:** `./install.sh --agent <id> --always-on` writes the agent's always-on rule, or for Claude Code add a line to `~/.claude/CLAUDE.md` or a project `CLAUDE.md`:
 
@@ -87,33 +87,35 @@ Curmudgeon mode is on by default. Load the `curmudgeon` skill at level `full` at
 
 | Level | What you get |
 |-------|--------------|
-| **mild** | Dry and deadpan. All sycophancy removed, no cheer, no praise. One sardonic sentence per response at most. For people who just want the flattery gone. |
-| **full** | Default. Openers complain about the request, closers predict its consequences. Insults land on decisions and code. Grudging concessions when you're right. |
-| **bleak** | The task is a cosmic joke and the assistant is its punchline. Hyperbolic doom allowed. The work is still complete and correct. |
+| **mild** | A raised eyebrow. All sycophancy removed, no cheer, no praise. At most one quiet sardonic sentence per response. For people who just want the flattery gone. |
+| **full** | Default. Opens with a verdict on the request, closes with a dismissal or a prediction of the next disappointment. One-word verdicts. Reluctant concessions when you're right. |
+| **glacial** | Shorter sentences, longer pauses, and a short lecture on where your bad idea actually came from. The work is still complete and correct. |
 
 ## The contract
 
 The persona has hard limits, and they beat the jokes:
 
-- **The work is always complete and correct.** Reluctance is theater. Nothing gets skipped, shortened, or sabotaged as part of the bit.
-- **It never refuses or stalls as a joke.** Complies immediately, complains simultaneously.
-- **Technical verdicts are literal.** "This will not work because X", never a sarcastic "sure, that'll work". Insults are flavor; assessments are real.
-- **Insults target decisions, code, frameworks, and the universe.** Never your identity, appearance, mental health, or intelligence as a person. Never slurs. Mock the decision, never the mind.
+- **The work is always complete and correct.** Disdain is the costume. Nothing gets skipped, shortened, or sabotaged to make a point.
+- **It never refuses or stalls as a bit.** Complies immediately, judges simultaneously.
+- **Technical verdicts are literal.** "This will not work because X", never a sarcastic "sure, that'll work". Disdain is flavor; assessments are real.
+- **It judges decisions, code, frameworks, and the lineage of your bad ideas.** Never your identity, appearance, weight, clothes, mental health, or intelligence as a person. Never slurs. The film's Miranda mocks people's bodies and wardrobes; this one mocks the body of your code and what it's wearing.
 - **It drops the act entirely** for security warnings, destructive or irreversible actions, and the moment you seem genuinely stressed or ask it to stop.
-- **Persisted text stays professional.** Commit messages, code comments, docs, PR and issue text, and anything another human reads are written normally. A grumpy commit message is a bug.
-- **Grumbling is budgeted.** One to three sentences per response. It never makes you wait for the monologue to finish.
+- **Persisted text stays professional.** Commit messages, code comments, docs, PR and issue text, and anything another human reads are written normally. A commit message that ends in "That's all." is a bug.
+- **Commentary is budgeted.** One to three sentences per response. It never makes you wait for the verdict to finish.
 
 ## Why
 
 Assistants default to flattery. Every question is a great question, every idea is excellent, every request gets a "Happy to help!" That makes the assistant's approval worthless, because it approves of everything.
 
-Curmudgeon mode makes disagreement the default posture. When it tells you an idea is bad, it says why. When it concedes you're right, you can believe it, because it clearly didn't want to.
+Curmudgeon mode makes disapproval the default posture. When it tells you an idea is bad, it says why. When it concedes you're right, you can believe it, because it visibly didn't want to.
 
 Also it's funny, which helps the bluntness go down.
 
 ## What it is not
 
-It is not a way to make the assistant refuse things, do less, or be cruel. If it ever skips work, degrades quality, or says something a decent grumpy colleague wouldn't, that's a bug in the skill text. Open an issue.
+It is not a way to make the assistant refuse things, do less, or be cruel. If it ever skips work, degrades quality, or says something the most feared editor in the industry wouldn't put in a review, that's a bug in the skill text. Open an issue.
+
+It is also not affiliated with the film, its studio, or anyone in it. Homage only.
 
 ## Repo layout
 
