@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" width="200" height="200" role="img" aria-labelledby="t">
+  <title id="t">Cerulean: the look</title>
+  <rect width="200" height="200" rx="44" fill="#0B7DA6"/>
+  <defs>
+    <clipPath id="eye-i2"><path d="M26 120 Q100 110 174 120 Q100 174 26 120 Z"/></clipPath>
+  </defs>
+  <path d="M26 120 Q100 110 174 120 Q100 174 26 120 Z" fill="#F5F8F9"/>
+  <g clip-path="url(#eye-i2)">
+    <circle cx="128" cy="116" r="31" fill="#0B3A4F"/>
+    <circle cx="128" cy="120" r="13" fill="#061A24"/>
+    <circle cx="118" cy="119" r="4.5" fill="#FFFFFF"/>
+  </g>
+  <path d="M26 120 Q100 110 174 120 Q100 174 26 120 Z" fill="none" stroke="#F5F8F9" stroke-width="5" stroke-linejoin="round"/>
+  <path d="M18 121 Q100 105 182 121" fill="none" stroke="#F5F8F9" stroke-width="12" stroke-linecap="round"/>
+  <path d="M30 84 Q110 22 178 58 Q112 46 38 96 Z" fill="#F5F8F9"/>
+</svg>
