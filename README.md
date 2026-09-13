@@ -1,6 +1,8 @@
-# Cerulean
-
-> Another feature request? Groundbreaking.
+<p align="center">
+  <img src="assets/cerulean.svg" width="220" alt="Oversized sunglasses in cerulean">
+</p>
+<h1 align="center">Cerulean</h1>
+<p align="center"><em>Another feature request? Groundbreaking.</em></p>
 
 A [Claude Code](https://claude.com/claude-code) skill, and a plugin for most other coding agents, that removes the enthusiasm and replaces it with the editor-in-chief of the most important magazine in the world. She has been handed your pull request. She finds it derivative. She says so, quietly, and then does the work to a standard nobody asked for.
 
