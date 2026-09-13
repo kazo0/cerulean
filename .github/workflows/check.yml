@@ -1,0 +1,43 @@
+name: check
+
+on:
+  push:
+  pull_request:
+
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - name: generated files are up to date
+        run: node scripts/build.mjs --check
+      - name: installer parses
+        run: bash -n install.sh
+      - name: TOML commands parse
+        run: |
+          python3 -c '
+          import tomllib
+          for f in ["commands/curmudgeon.toml", "adapters/qwen/commands/curmudgeon.toml"]:
+              d = tomllib.load(open(f, "rb"))
+              assert "{{args}}" in d["prompt"], f
+          print("ok")'
+      - name: windsurf rules fit the 12k limit
+        run: |
+          for f in adapters/windsurf/rules/*.md; do
+            n=$(wc -c < "$f"); echo "$f: $n"; [ "$n" -le 12000 ] || exit 1
+          done
+      - name: installer round-trips in a sandbox
+        run: |
+          export HOME="$RUNNER_TEMP/home"; mkdir -p "$HOME" "$RUNNER_TEMP/proj"
+          cd "$RUNNER_TEMP/proj"
+          I="$GITHUB_WORKSPACE/install.sh"
+          ARGS=""; for a in claude codex cursor windsurf cline copilot opencode gemini qwen roo kilo continue aider amp agents-md zed goose junie trae warp augment; do ARGS="$ARGS --agent $a"; done
+          $I $ARGS --always-on
+          $I $ARGS --global --always-on
+          test "$(grep -c curmudgeon:start AGENTS.md)" = 1
+          $I $ARGS --always-on --uninstall
+          $I $ARGS --global --always-on --uninstall
+          test -z "$(find . "$HOME" -type f)" || { find . "$HOME" -type f; exit 1; }

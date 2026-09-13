@@ -28,29 +28,44 @@ The global gets added. It always gets added. That's the point.
 
 ## Install
 
-**As a plugin (recommended):**
+**Claude Code**
 
 ```
 /plugin marketplace add kazo0/curmudgeon
 /plugin install curmudgeon@curmudgeon
 ```
 
-**With the skills CLI:**
+**Any agent that reads Agent Skills** (Codex, Cursor, GitHub Copilot, Gemini CLI, opencode, Amp, Roo, Kilo, Goose, and a few dozen more):
 
 ```bash
-npx skills add kazo0/curmudgeon
+npx skills add kazo0/curmudgeon        # this project
+npx skills add kazo0/curmudgeon -g     # everywhere
 ```
 
-**Manually:** copy `skills/curmudgeon/` into `~/.claude/skills/` (all projects) or `.claude/skills/` (one project).
+Add `-a codex -a cursor` to pick agents. This installs the skill on demand: ask for "curmudgeon mode" and the agent loads it.
 
-**Try it without installing:**
+**Gemini CLI**
 
 ```bash
-git clone https://github.com/kazo0/curmudgeon
-claude --plugin-dir ./curmudgeon
+gemini extensions install https://github.com/kazo0/curmudgeon
 ```
+
+**Everything else**, and `/curmudgeon` commands or always-on rules for agents that don't get them from a skill (Cursor, Windsurf, Cline, Copilot, opencode, Roo, Kilo, Continue, Aider, Zed, Junie, and so on):
+
+```bash
+git clone https://github.com/kazo0/curmudgeon && cd curmudgeon
+./install.sh --list                          # what's detected, what each agent gets
+./install.sh --agent cursor --agent cline    # into the current project
+./install.sh --all --global --always-on      # every detected agent, user-wide, always on
+```
+
+[INSTALL.md](INSTALL.md) has the per-agent matrix and manual copy paths.
+
+**Try it without installing:** `claude --plugin-dir ./curmudgeon` from a clone.
 
 ## Usage
+
+Where the agent has slash commands (Claude Code, Gemini CLI, Qwen Code, Cursor, Windsurf, Cline, Copilot, opencode, Roo, Kilo):
 
 ```
 /curmudgeon              # on, default level (full)
@@ -60,9 +75,9 @@ claude --plugin-dir ./curmudgeon
 /curmudgeon off          # back to normal
 ```
 
-Saying "stop curmudgeon", "normal mode", or "be nice" also turns it off. The level persists for the rest of the session.
+Cline and Kilo invoke workflows as `/curmudgeon.md`. Everywhere else, just say it: "curmudgeon mode", "curmudgeon bleak", "curmudgeon off". Saying "stop curmudgeon", "normal mode", or "be nice" also turns it off. The level persists for the rest of the session.
 
-**Always on:** add a line to your `CLAUDE.md` (global at `~/.claude/CLAUDE.md`, or per project):
+**Always on:** `./install.sh --agent <id> --always-on` writes the agent's always-on rule, or for Claude Code add a line to `~/.claude/CLAUDE.md` or a project `CLAUDE.md`:
 
 ```markdown
 Curmudgeon mode is on by default. Load the `curmudgeon` skill at level `full` at the start of every session.
@@ -99,6 +114,10 @@ Also it's funny, which helps the bluntness go down.
 ## What it is not
 
 It is not a way to make the assistant refuse things, do less, or be cruel. If it ever skips work, degrades quality, or says something a decent grumpy colleague wouldn't, that's a bug in the skill text. Open an issue.
+
+## Repo layout
+
+`skills/curmudgeon/SKILL.md` is the whole persona and the only file to edit. `scripts/build.mjs` generates every other agent's format from it into `adapters/`, plus the Gemini CLI extension files at the root. CI fails if a generated file is stale. `install.sh` copies the right files into place per agent.
 
 ## License
 
