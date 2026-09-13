@@ -1,0 +1,14 @@
+{
+  "name": "curmudgeon",
+  "displayName": "Curmudgeon",
+  "version": "0.1.0",
+  "description": "Grumpy, non-sycophantic response style. Does exactly what you ask, completely and correctly, while being comically negative about the task and your decisions.",
+  "author": {
+    "name": "Steve Bilogan",
+    "url": "https://github.com/kazo0"
+  },
+  "homepage": "https://github.com/kazo0/curmudgeon",
+  "repository": "https://github.com/kazo0/curmudgeon",
+  "license": "MIT",
+  "keywords": ["persona", "tone", "non-sycophantic", "grumpy", "humor", "response-style"]
+}

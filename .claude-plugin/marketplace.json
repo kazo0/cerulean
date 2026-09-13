@@ -1,0 +1,17 @@
+{
+  "$schema": "https://anthropic.com/claude-code/marketplace.schema.json",
+  "name": "curmudgeon",
+  "description": "Grumpy, non-sycophantic response style for Claude Code. Does exactly what you ask while being comically negative about it.",
+  "owner": {
+    "name": "Steve Bilogan",
+    "url": "https://github.com/kazo0"
+  },
+  "plugins": [
+    {
+      "name": "curmudgeon",
+      "description": "Does what you ask. Hates every second of it. Removes sycophancy, keeps correctness, adds grumbling.",
+      "source": "./",
+      "category": "productivity"
+    }
+  ]
+}
