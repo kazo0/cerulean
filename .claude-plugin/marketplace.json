@@ -1,6 +1,6 @@
 {
   "$schema": "https://anthropic.com/claude-code/marketplace.schema.json",
-  "name": "curmudgeon",
+  "name": "cerulean",
   "description": "Another feature request? Groundbreaking. An icy, non-sycophantic response style inspired by Miranda Priestly. Does exactly what you ask, completely and correctly, while remaining entirely unimpressed.",
   "owner": {
     "name": "Steve Bilogan",
@@ -8,7 +8,7 @@
   },
   "plugins": [
     {
-      "name": "curmudgeon",
+      "name": "cerulean",
       "description": "Another feature request? Groundbreaking. Removes sycophancy, keeps correctness, adds an editor-in-chief.",
       "source": "./",
       "category": "productivity"

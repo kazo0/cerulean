@@ -1,10 +1,12 @@
-# Curmudgeon
+# Cerulean
 
 > Another feature request? Groundbreaking.
 
 A [Claude Code](https://claude.com/claude-code) skill, and a plugin for most other coding agents, that removes the enthusiasm and replaces it with the editor-in-chief of the most important magazine in the world. She has been handed your pull request. She finds it derivative. She says so, quietly, and then does the work to a standard nobody asked for.
 
 Inspired by Miranda Priestly in *The Devil Wears Prada* (2006). The inverse of sycophancy, in heels. The mechanics borrow from [caveman](https://github.com/juliusbrussee/caveman), which does the same trick for verbosity.
+
+**Why "cerulean"?** For the speech. The one where she explains that the sweater you think you picked was picked for you, years ago, by people in a room you weren't in. This skill does that to your architecture decisions. Formerly published as `curmudgeon`.
 
 ## Before / after
 
@@ -14,7 +16,7 @@ Inspired by Miranda Priestly in *The Devil Wears Prada* (2006). The inverse of s
 
 > Great question! The reason your React component is re-rendering is likely because you're creating a new object reference on each render cycle. When you pass an inline object as a prop, React's shallow comparison sees it as a different object every time, which triggers a re-render. I'd recommend using `useMemo` to memoize the object. Happy to help further!
 
-**Curmudgeon:**
+**Cerulean:**
 
 > You hand it a new object every render and are surprised it renders. Inline object prop, new reference, re-render. Wrap it in `useMemo`. That's all.
 
@@ -31,29 +33,29 @@ The global gets added. It always gets added. That's the point.
 **Claude Code**
 
 ```
-/plugin marketplace add kazo0/curmudgeon
-/plugin install curmudgeon@curmudgeon
+/plugin marketplace add kazo0/cerulean
+/plugin install cerulean@cerulean
 ```
 
 **Any agent that reads Agent Skills** (Codex, Cursor, GitHub Copilot, Gemini CLI, opencode, Amp, Roo, Kilo, Goose, and a few dozen more):
 
 ```bash
-npx skills add kazo0/curmudgeon        # this project
-npx skills add kazo0/curmudgeon -g     # everywhere
+npx skills add kazo0/cerulean        # this project
+npx skills add kazo0/cerulean -g     # everywhere
 ```
 
-Add `-a codex -a cursor` to pick agents. This installs the skill on demand: ask for "curmudgeon mode" and the agent loads it.
+Add `-a codex -a cursor` to pick agents. This installs the skill on demand: ask for "cerulean mode" and the agent loads it.
 
 **Gemini CLI**
 
 ```bash
-gemini extensions install https://github.com/kazo0/curmudgeon
+gemini extensions install https://github.com/kazo0/cerulean
 ```
 
-**Everything else**, and `/curmudgeon` commands or always-on rules for agents that don't get them from a skill (Cursor, Windsurf, Cline, Copilot, opencode, Roo, Kilo, Continue, Aider, Zed, Junie, and so on):
+**Everything else**, and `/cerulean` commands or always-on rules for agents that don't get them from a skill (Cursor, Windsurf, Cline, Copilot, opencode, Roo, Kilo, Continue, Aider, Zed, Junie, and so on):
 
 ```bash
-git clone https://github.com/kazo0/curmudgeon && cd curmudgeon
+git clone https://github.com/kazo0/cerulean && cd cerulean
 ./install.sh --list                          # what's detected, what each agent gets
 ./install.sh --agent cursor --agent cline    # into the current project
 ./install.sh --all --global --always-on      # every detected agent, user-wide, always on
@@ -61,26 +63,26 @@ git clone https://github.com/kazo0/curmudgeon && cd curmudgeon
 
 [INSTALL.md](INSTALL.md) has the per-agent matrix and manual copy paths.
 
-**Try it without installing:** `claude --plugin-dir ./curmudgeon` from a clone.
+**Try it without installing:** `claude --plugin-dir ./cerulean` from a clone.
 
 ## Usage
 
 Where the agent has slash commands (Claude Code, Gemini CLI, Qwen Code, Cursor, Windsurf, Cline, Copilot, opencode, Roo, Kilo):
 
 ```
-/curmudgeon              # on, default level (full)
-/curmudgeon mild         # a raised eyebrow; flattery removed, occasional dry remark
-/curmudgeon full         # the office; verdicts, dismissals, reluctant concessions
-/curmudgeon glacial      # the full treatment; the disappointment is historic
-/curmudgeon off          # back to normal
+/cerulean              # on, default level (full)
+/cerulean mild         # a raised eyebrow; flattery removed, occasional dry remark
+/cerulean full         # the office; verdicts, dismissals, reluctant concessions
+/cerulean glacial      # the full treatment; the disappointment is historic
+/cerulean off          # back to normal
 ```
 
-Cline and Kilo invoke workflows as `/curmudgeon.md`. Everywhere else, just say it: "curmudgeon mode", "curmudgeon glacial", "curmudgeon off". Saying "stop curmudgeon" or "normal mode" also turns it off. The level persists for the rest of the session. `bleak`, the old name for the top level, still works as an alias.
+Cline and Kilo invoke workflows as `/cerulean.md`. Everywhere else, just say it: "cerulean mode", "cerulean glacial", "cerulean off". Saying "stop cerulean" or "normal mode" also turns it off. The level persists for the rest of the session. `bleak`, the old name for the top level, still works as an alias.
 
 **Always on:** `./install.sh --agent <id> --always-on` writes the agent's always-on rule, or for Claude Code add a line to `~/.claude/CLAUDE.md` or a project `CLAUDE.md`:
 
 ```markdown
-Curmudgeon mode is on by default. Load the `curmudgeon` skill at level `full` at the start of every session.
+Cerulean mode is on by default. Load the `cerulean` skill at level `full` at the start of every session.
 ```
 
 ## Levels
@@ -107,7 +109,7 @@ The persona has hard limits, and they beat the jokes:
 
 Assistants default to flattery. Every question is a great question, every idea is excellent, every request gets a "Happy to help!" That makes the assistant's approval worthless, because it approves of everything.
 
-Curmudgeon mode makes disapproval the default posture. When it tells you an idea is bad, it says why. When it concedes you're right, you can believe it, because it visibly didn't want to.
+Cerulean mode makes disapproval the default posture. When it tells you an idea is bad, it says why. When it concedes you're right, you can believe it, because it visibly didn't want to.
 
 Also it's funny, which helps the bluntness go down.
 
@@ -119,7 +121,7 @@ It is also not affiliated with the film, its studio, or anyone in it. Homage onl
 
 ## Repo layout
 
-`skills/curmudgeon/SKILL.md` is the whole persona and the only file to edit. `scripts/build.mjs` generates every other agent's format from it into `adapters/`, plus the Gemini CLI extension files at the root. CI fails if a generated file is stale. `install.sh` copies the right files into place per agent.
+`skills/cerulean/SKILL.md` is the whole persona and the only file to edit. `scripts/build.mjs` generates every other agent's format from it into `adapters/`, plus the Gemini CLI extension files at the root. CI fails if a generated file is stale. `install.sh` copies the right files into place per agent.
 
 ## License
 

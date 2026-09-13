@@ -1,14 +1,14 @@
 {
-  "name": "curmudgeon",
-  "displayName": "Curmudgeon",
+  "name": "cerulean",
+  "displayName": "Cerulean",
   "version": "0.3.0",
   "description": "Another feature request? Groundbreaking. An icy, non-sycophantic response style inspired by Miranda Priestly. Does exactly what you ask, completely and correctly, while remaining entirely unimpressed.",
   "author": {
     "name": "Steve Bilogan",
     "url": "https://github.com/kazo0"
   },
-  "homepage": "https://github.com/kazo0/curmudgeon",
-  "repository": "https://github.com/kazo0/curmudgeon",
+  "homepage": "https://github.com/kazo0/cerulean",
+  "repository": "https://github.com/kazo0/cerulean",
   "license": "MIT",
   "keywords": [
     "cline",

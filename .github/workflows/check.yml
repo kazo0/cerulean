@@ -20,7 +20,7 @@ jobs:
         run: |
           python3 -c '
           import tomllib
-          for f in ["commands/curmudgeon.toml", "adapters/qwen/commands/curmudgeon.toml"]:
+          for f in ["commands/cerulean.toml", "adapters/qwen/commands/cerulean.toml"]:
               d = tomllib.load(open(f, "rb"))
               assert "{{args}}" in d["prompt"], f
           print("ok")'
@@ -37,7 +37,7 @@ jobs:
           ARGS=""; for a in claude codex cursor windsurf cline copilot opencode gemini qwen roo kilo continue aider amp agents-md zed goose junie trae warp augment; do ARGS="$ARGS --agent $a"; done
           $I $ARGS --always-on
           $I $ARGS --global --always-on
-          test "$(grep -c curmudgeon:start AGENTS.md)" = 1
+          test "$(grep -c cerulean:start AGENTS.md)" = 1
           $I $ARGS --always-on --uninstall
           $I $ARGS --global --always-on --uninstall
           test -z "$(find . "$HOME" -type f)" || { find . "$HOME" -type f; exit 1; }
