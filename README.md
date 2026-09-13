@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="assets/cerulean.svg" width="220" alt="Oversized sunglasses in cerulean">
+  <img src="assets/cerulean.svg" width="128" alt="One half-lidded eye glancing sideways under a raised brow, on a cerulean tile">
 </p>
 <h1 align="center">Cerulean</h1>
 <p align="center"><em>Another feature request? Groundbreaking.</em></p>

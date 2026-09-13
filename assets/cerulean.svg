@@ -1,24 +1,16 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 280 124" width="280" height="124" role="img" aria-labelledby="t">
-  <title id="t">Cerulean: oversized wire sunglasses</title>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" width="200" height="200" role="img" aria-labelledby="t">
+  <title id="t">Cerulean: the look</title>
+  <rect width="200" height="200" rx="44" fill="#0B7DA6"/>
   <defs>
-    <linearGradient id="lens-f" x1="0" y1="0" x2="0" y2="1">
-      <stop offset="0" stop-color="#0B4F69" stop-opacity="0.96"/>
-      <stop offset="0.55" stop-color="#0B7DA6" stop-opacity="0.82"/>
-      <stop offset="1" stop-color="#8FD0E8" stop-opacity="0.5"/>
-    </linearGradient>
+    <clipPath id="eye-i2"><path d="M26 120 Q100 110 174 120 Q100 174 26 120 Z"/></clipPath>
   </defs>
-  <g fill="url(#lens-f)" stroke="#B8925A" stroke-width="3.2">
-    <ellipse cx="72" cy="66" rx="60" ry="47" transform="rotate(7 72 66)"/>
-    <ellipse cx="208" cy="66" rx="60" ry="47" transform="rotate(-7 208 66)"/>
+  <path d="M26 120 Q100 110 174 120 Q100 174 26 120 Z" fill="#F5F8F9"/>
+  <g clip-path="url(#eye-i2)">
+    <circle cx="128" cy="116" r="31" fill="#0B3A4F"/>
+    <circle cx="128" cy="120" r="13" fill="#061A24"/>
+    <circle cx="118" cy="119" r="4.5" fill="#FFFFFF"/>
   </g>
-  <g fill="none" stroke="#B8925A" stroke-width="3.2" stroke-linecap="round">
-    <path d="M128 50 Q140 36 152 50"/>
-    <path d="M131 58 Q140 50 149 58"/>
-    <path d="M15 52 L3 44"/>
-    <path d="M265 52 L277 44"/>
-  </g>
-  <g fill="#ffffff">
-    <ellipse cx="46" cy="42" rx="16" ry="6" opacity="0.28" transform="rotate(-14 46 42)"/>
-    <ellipse cx="234" cy="42" rx="16" ry="6" opacity="0.28" transform="rotate(14 234 42)"/>
-  </g>
+  <path d="M26 120 Q100 110 174 120 Q100 174 26 120 Z" fill="none" stroke="#F5F8F9" stroke-width="5" stroke-linejoin="round"/>
+  <path d="M18 121 Q100 105 182 121" fill="none" stroke="#F5F8F9" stroke-width="12" stroke-linecap="round"/>
+  <path d="M30 84 Q110 22 178 58 Q112 46 38 96 Z" fill="#F5F8F9"/>
 </svg>
