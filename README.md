@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="assets/cerulean.svg" width="128" alt="One half-lidded eye glancing sideways under a raised brow, on a cerulean tile">
+  <img src="assets/cerulean.svg" width="128" alt="A swept silver coiffure silhouette on a cerulean tile">
 </p>
 <h1 align="center">Cerulean</h1>
 <p align="center"><em>Another feature request? Groundbreaking.</em></p>
@@ -123,7 +123,9 @@ It is also not affiliated with the film, its studio, or anyone in it. Homage onl
 
 ## Repo layout
 
-`skills/cerulean/SKILL.md` is the whole persona and the only file to edit. `scripts/build.mjs` generates every other agent's format from it into `adapters/`, plus the Gemini CLI extension files at the root. CI fails if a generated file is stale. `install.sh` copies the right files into place per agent.
+`skills/cerulean/SKILL.md` is the whole persona and the only file to edit for response-style changes. `scripts/build.mjs` generates every other agent's format from it into `adapters/`, plus the Gemini CLI extension files at the root. CI fails if a generated file is stale. `install.sh` copies the right files into place per agent.
+
+The silver coiffure is the project icon. [Brand assets and usage](assets/BRANDING.md) include the canonical SVG, wordmark, avatar, and social preview. `scripts/build-branding.mjs` derives the artwork from the canonical icon.
 
 ## License
 

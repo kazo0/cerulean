@@ -1,0 +1,31 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1280" height="640" viewBox="0 0 1280 640" role="img" aria-labelledby="title">
+  <title id="title">Cerulean — Another feature request? Groundbreaking.</title>
+  <rect width="1280" height="640" fill="#F5F8F9"/>
+<g transform="translate(88 168) scale(1.4)">
+  <rect width="200" height="200" rx="44" fill="#0B7DA6"/>
+  <path d="M28 101
+    C36 86 49 80 57 63
+    C69 37 94 26 120 29
+    C138 30 148 39 148 53
+    C168 51 178 74 176 103
+    C175 128 166 147 149 155
+    C158 140 157 128 150 115
+    C144 105 147 88 137 81
+    C132 77 130 74 132 68
+    C115 62 106 75 98 90
+    C86 112 64 114 57 132
+    C52 147 64 157 54 171
+    C54 159 43 158 37 151
+    L45 150
+    C27 145 23 130 29 116
+    C20 115 23 109 28 101Z" fill="#F5F8F9"/>
+  <path d="M39 113
+    C66 103 77 90 91 73
+    C105 56 122 51 136 61
+    C118 57 107 65 97 79
+    C82 100 64 110 39 113Z" fill="#0B7DA6"/>
+</g>
+  <text x="424" y="302" fill="#103747" font-family="Georgia, 'Times New Roman', serif" font-size="110">Cerulean</text>
+  <text x="430" y="366" fill="#103747" font-family="Arial, sans-serif" font-size="29">Another feature request? Groundbreaking.</text>
+  <text x="430" y="421" fill="#426575" font-family="Arial, sans-serif" font-size="23">Impeccable work. Withering commentary.</text>
+</svg>

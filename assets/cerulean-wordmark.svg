@@ -1,5 +1,7 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" width="200" height="200" role="img" aria-labelledby="t">
-  <title id="t">Cerulean: silver coiffure</title>
+<svg xmlns="http://www.w3.org/2000/svg" width="720" height="200" viewBox="0 0 720 200" role="img" aria-labelledby="title">
+  <title id="title">Cerulean</title>
+  <rect width="720" height="200" rx="32" fill="#F5F8F9"/>
+<g transform="translate(24 24) scale(0.76)">
   <rect width="200" height="200" rx="44" fill="#0B7DA6"/>
   <path d="M28 101
     C36 86 49 80 57 63
@@ -22,4 +24,6 @@
     C105 56 122 51 136 61
     C118 57 107 65 97 79
     C82 100 64 110 39 113Z" fill="#0B7DA6"/>
+</g>
+  <text x="210" y="128" fill="#103747" font-family="Georgia, 'Times New Roman', serif" font-size="86">Cerulean</text>
 </svg>
