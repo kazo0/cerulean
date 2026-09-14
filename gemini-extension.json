@@ -1,6 +1,6 @@
 {
   "name": "cerulean",
   "version": "0.3.0",
-  "description": "Another feature request? Groundbreaking. An icy, non-sycophantic response style inspired by Miranda Priestly. Does exactly what you ask, completely and correctly, while remaining entirely unimpressed. Adds /cerulean [mild|full|glacial|off].",
+  "description": "Another feature request? Groundbreaking. An icy, non-sycophantic response style inspired by Miranda Priestly. Does exactly what you ask, completely and correctly, while remaining entirely unimpressed. Always glacial. Adds /cerulean [off].",
   "contextFileName": "GEMINI.md"
 }

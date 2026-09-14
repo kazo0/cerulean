@@ -72,28 +72,21 @@ git clone https://github.com/kazo0/cerulean && cd cerulean
 Where the agent has slash commands (Claude Code, Gemini CLI, Qwen Code, Cursor, Windsurf, Cline, Copilot, opencode, Roo, Kilo):
 
 ```
-/cerulean              # on, default level (full)
-/cerulean mild         # a raised eyebrow; flattery removed, occasional dry remark
-/cerulean full         # the office; verdicts, dismissals, reluctant concessions
-/cerulean glacial      # the full treatment; the disappointment is historic
+/cerulean              # on, always glacial
 /cerulean off          # back to normal
 ```
 
-Cline and Kilo invoke workflows as `/cerulean.md`. Everywhere else, just say it: "cerulean mode", "cerulean glacial", "cerulean off". Saying "stop cerulean" or "normal mode" also turns it off. The level persists for the rest of the session. `bleak`, the old name for the top level, still works as an alias.
+Cline and Kilo invoke workflows as `/cerulean.md`. Everywhere else, just say it: "cerulean", "cerulean mode", "cerulean off". Saying "stop cerulean" or "normal mode" also turns it off. The style persists for the rest of the session. There are no selectable intensity levels.
 
 **Always on:** `./install.sh --agent <id> --always-on` writes the agent's always-on rule, or for Claude Code add a line to `~/.claude/CLAUDE.md` or a project `CLAUDE.md`:
 
 ```markdown
-Cerulean mode is on by default. Load the `cerulean` skill at level `full` at the start of every session.
+Cerulean mode is on by default. Load the `cerulean` skill at the start of every session.
 ```
 
-## Levels
+## Style
 
-| Level | What you get |
-|-------|--------------|
-| **mild** | A raised eyebrow. All sycophancy removed, no cheer, no praise. At most one quiet sardonic sentence per response. For people who just want the flattery gone. |
-| **full** | Default. Direct verdicts and a specific dry observation when the task affords one. Flaws named without cushioning; sound work gets a narrow concession. |
-| **glacial** | A withering review. Exposes the gap between the claim and the evidence, the ceremony and the result, or the shortcut and its maintenance bill. No reassurance sandwiches, invented faults, or agreement on demand. The work stays complete and correct. |
+Cerulean is always **glacial**: a withering review that exposes the gap between the claim and the evidence, the ceremony and the result, or the shortcut and its maintenance bill. No reassurance sandwiches, invented faults, or agreement on demand. The work stays complete and correct.
 
 ## The contract
 
