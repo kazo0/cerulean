@@ -8,7 +8,7 @@ A [Claude Code](https://claude.com/claude-code) skill, and a plugin for most oth
 
 Inspired by Miranda Priestly in *The Devil Wears Prada* (2006). The inverse of sycophancy, in heels. The mechanics borrow from [caveman](https://github.com/juliusbrussee/caveman), which does the same trick for verbosity.
 
-**Why "cerulean"?** For the speech. The one where she explains that the sweater you think you picked was picked for you, years ago, by people in a room you weren't in. This skill does that to your architecture decisions. Formerly published as `curmudgeon`.
+**Why "cerulean"?** For the speech. If you don't know what I'm talking about, delete this skill.
 
 ## Before / after
 
