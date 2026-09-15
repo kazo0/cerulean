@@ -18,8 +18,7 @@ const match = source.match(/^---\n([\s\S]*?)\n---\n([\s\S]*)$/);
 if (!match) throw new Error('skills/cerulean/SKILL.md: frontmatter not found');
 const body = match[2].trim() + '\n';
 
-const SHORT = 'Cerulean mode: icy, non-sycophantic responses in the register of a fashion editor-in-chief. Still does exactly what you ask. Levels: mild, full, glacial, off.';
-const LEVELS = 'mild, full, or glacial (default full; bleak is an alias for glacial); off turns it off';
+const SHORT = 'Cerulean mode: icy, non-sycophantic responses in the register of a fashion editor-in-chief. Still does exactly what you ask. Always glacial. Use off to return to normal responses.';
 const GENERATED = '<!-- Generated from skills/cerulean/SKILL.md by scripts/build.mjs. Do not edit by hand. -->\n';
 
 // --- wrappers -------------------------------------------------------------
@@ -42,20 +41,20 @@ const onDemandHeader = (howToActivate) =>
   `The rules below are OFF until the user ${howToActivate}, or asks for "cerulean mode" or "grumpy mode" in plain words. ` +
   'While off, respond normally and ignore the rest of this file. Once on, the rules stay on until the user turns them off.\n\n';
 
-// Slash command / workflow / prompt file: turns the mode on at a level.
+// Slash command / workflow / prompt file: turns the style on or off.
 const commandHeader = (argExpr) =>
   argExpr
-    ? `Adopt cerulean mode for the rest of this session at level "${argExpr}". Levels: ${LEVELS}. If the level is blank, use full. Rules:\n\n`
-    : `Adopt cerulean mode for the rest of this session. The level, if any, follows this command in the user's message: ${LEVELS}. Rules:\n\n`;
+    ? `Adopt the glacial Cerulean style for the rest of this session. If "${argExpr}" is "off", return to normal responses instead. There are no selectable intensity levels. Rules:\n\n`
+    : `Adopt the glacial Cerulean style for the rest of this session. If the user supplies off after this command, return to normal responses instead. There are no selectable intensity levels. Rules:\n\n`;
 
 // Short switch prompt for Gemini CLI / Qwen Code custom commands. The rules
 // themselves arrive through the context file or the installed skill.
 const tomlCommand = (contextFile) =>
   `description = ${JSON.stringify(SHORT)}\n` +
   "prompt = '''\n" +
-  `Switch cerulean mode to "{{args}}". Levels: ${LEVELS}. If blank, use full. ` +
-  `Apply that level's rules from the cerulean skill, or from the Cerulean section of the loaded ${contextFile} context file, for the rest of this session. ` +
-  "Never substitute another level's rules for the one named. Reply with at most one dry sentence, then wait.\n" +
+  `Adopt the glacial Cerulean style for the rest of this session. If "{{args}}" is "off", return to normal responses instead. ` +
+  `Otherwise apply the rules from the cerulean skill, or from the Cerulean section of the loaded ${contextFile} context file, for the rest of this session. ` +
+  "There are no selectable intensity levels. Reply with at most one dry sentence, then wait.\n" +
   "'''\n";
 
 // Universal always-on block for the AGENTS.md family (Codex, Cursor, Amp,
@@ -83,12 +82,12 @@ const outputs = [
   ['adapters/AGENTS.md', agentsBlock],
 
   // Cursor: .cursor/rules/*.mdc and .cursor/commands/*.md (/cerulean)
-  ['adapters/cursor/rules/cerulean.mdc', rule({ description: SHORT, alwaysApply: false }, onDemandHeader('runs `/cerulean [level]`'))],
+  ['adapters/cursor/rules/cerulean.mdc', rule({ description: SHORT, alwaysApply: false }, onDemandHeader('runs `/cerulean`'))],
   ['adapters/cursor/rules/cerulean.always-on.mdc', rule({ description: SHORT, alwaysApply: true }, alwaysOnHeader)],
   ['adapters/cursor/commands/cerulean.md', command(null, null)],
 
   // Windsurf / Devin: .windsurf/rules/*.md (12k char limit) and .windsurf/workflows/*.md (/cerulean)
-  ['adapters/windsurf/rules/cerulean.md', rule({ trigger: 'model_decision', description: SHORT }, onDemandHeader('runs `/cerulean [level]`'))],
+  ['adapters/windsurf/rules/cerulean.md', rule({ trigger: 'model_decision', description: SHORT }, onDemandHeader('runs `/cerulean`'))],
   ['adapters/windsurf/rules/cerulean.always-on.md', rule({ trigger: 'always_on' }, alwaysOnHeader)],
   ['adapters/windsurf/workflows/cerulean.md', command({ description: SHORT }, null)],
 
@@ -99,32 +98,32 @@ const outputs = [
   // GitHub Copilot: .github/instructions/*.instructions.md (always on) and .github/prompts/*.prompt.md (/cerulean)
   ['adapters/copilot/instructions/cerulean.instructions.md', rule({ applyTo: '**' }, alwaysOnHeader)],
   ['adapters/copilot/prompts/cerulean.prompt.md',
-    command({ name: 'cerulean', description: SHORT, 'argument-hint': 'mild | full | glacial | off' }, null)],
+    command({ name: 'cerulean', description: SHORT, 'argument-hint': 'off' }, null)],
 
   // opencode: .opencode/command/*.md (/cerulean, $ARGUMENTS)
   ['adapters/opencode/command/cerulean.md', command({ description: SHORT }, '$ARGUMENTS')],
 
   // Roo Code: .roo/rules/*.md (always on) and .roo/commands/*.md (/cerulean)
   ['adapters/roo/rules/cerulean.md', rule(null, alwaysOnHeader)],
-  ['adapters/roo/commands/cerulean.md', command({ description: SHORT, 'argument-hint': 'mild | full | glacial | off' }, null)],
+  ['adapters/roo/commands/cerulean.md', command({ description: SHORT, 'argument-hint': 'off' }, null)],
 
   // Kilo Code: .kilocode/rules/*.md (always on) and .kilocode/workflows/*.md (/cerulean.md)
   ['adapters/kilo/rules/cerulean.md', rule(null, alwaysOnHeader)],
   ['adapters/kilo/workflows/cerulean.md', command(null, null)],
 
   // Continue: .continue/rules/*.md
-  ['adapters/continue/rules/cerulean.md', rule({ name: 'Cerulean', description: SHORT, alwaysApply: false }, onDemandHeader('says `cerulean` followed by a level'))],
+  ['adapters/continue/rules/cerulean.md', rule({ name: 'Cerulean', description: SHORT, alwaysApply: false }, onDemandHeader('says `cerulean`'))],
   ['adapters/continue/rules/cerulean.always-on.md', rule({ name: 'Cerulean', description: SHORT, alwaysApply: true }, alwaysOnHeader)],
 
   // Aider: any markdown file passed with --read or listed under `read:` in .aider.conf.yml
   ['adapters/aider/cerulean.md', rule(null, alwaysOnHeader)],
 
   // Gemini CLI extension (repo root): gemini-extension.json points at GEMINI.md; commands/*.toml become /cerulean
-  ['GEMINI.md', md(onDemandHeader('runs `/cerulean [level]`'), body)],
+  ['GEMINI.md', md(onDemandHeader('runs `/cerulean`'), body)],
   ['commands/cerulean.toml', tomlCommand('GEMINI.md')],
 
   // Qwen Code: same shape as Gemini CLI, different folder names
-  ['adapters/qwen/QWEN.md', md(onDemandHeader('runs `/cerulean [level]`'), body)],
+  ['adapters/qwen/QWEN.md', md(onDemandHeader('runs `/cerulean`'), body)],
   ['adapters/qwen/commands/cerulean.toml', tomlCommand('QWEN.md')],
 ];
 

@@ -20,38 +20,38 @@
 An agent can have up to three things:
 
 1. **The skill.** The agent loads `SKILL.md` on demand when you ask for "cerulean mode" or invoke the skill the way that agent does it. On Claude Code the skill is also the `/cerulean` command.
-2. **A command.** `/cerulean <level>` in the agent's own command, workflow, or prompt-file format, so you can switch levels without typing a paragraph.
+2. **A command.** `/cerulean` in the agent's own command, workflow, or prompt-file format, to activate the glacial style; `/cerulean off` returns to normal responses.
 3. **An always-on rule.** The persona applies to every response in the workspace without being asked.
 
 `npx skills add` gives you the skill only. `install.sh` gives you the skill plus the command, and `--always-on` adds the rule. The Gemini extension gives you the command plus a context file that holds the rules dormant until you ask.
 
 ## Agent matrix
 
-`id` is what you pass to `./install.sh --agent <id>`. "Command" is how you switch levels once installed.
+`id` is what you pass to `./install.sh --agent <id>`. "Command" is how you activate Cerulean once installed.
 
 | Agent | id | Command | Always-on option | Notes |
 |---|---|---|---|---|
-| Claude Code | `claude` | `/cerulean glacial` (the skill itself) | `--always-on` appends a block to `CLAUDE.md` | Prefer the plugin install; `install.sh` copies the skill dir |
-| Codex CLI | `codex` | say `cerulean glacial` | `--always-on` appends to `AGENTS.md` (`~/.codex/AGENTS.md` with `--global`) | Codex custom prompts are deprecated in favor of skills, so no prompt file is shipped |
-| Cursor | `cursor` | `/cerulean glacial` (`.cursor/commands`) | `.cursor/rules/cerulean.mdc` with `alwaysApply: true` | Without `--always-on` the rule is `alwaysApply: false` with a description, so the agent picks it up when asked. Global scope installs the skill and command only; Cursor keeps user rules in Settings |
-| Windsurf / Devin | `windsurf` | `/cerulean glacial` (workflow) | `.windsurf/rules/cerulean.md` with `trigger: always_on` | Without `--always-on` the rule is `trigger: model_decision`. Project scope only: global rules are capped at 6,000 characters. Newer builds also read `.devin/rules/` and `.devin/workflows/` |
+| Claude Code | `claude` | `/cerulean` (the skill itself) | `--always-on` appends a block to `CLAUDE.md` | Prefer the plugin install; `install.sh` copies the skill dir |
+| Codex CLI | `codex` | say `cerulean` | `--always-on` appends to `AGENTS.md` (`~/.codex/AGENTS.md` with `--global`) | Codex custom prompts are deprecated in favor of skills, so no prompt file is shipped |
+| Cursor | `cursor` | `/cerulean` (`.cursor/commands`) | `.cursor/rules/cerulean.mdc` with `alwaysApply: true` | Without `--always-on` the rule is `alwaysApply: false` with a description, so the agent picks it up when asked. Global scope installs the skill and command only; Cursor keeps user rules in Settings |
+| Windsurf / Devin | `windsurf` | `/cerulean` (workflow) | `.windsurf/rules/cerulean.md` with `trigger: always_on` | Without `--always-on` the rule is `trigger: model_decision`. Project scope only: global rules are capped at 6,000 characters. Newer builds also read `.devin/rules/` and `.devin/workflows/` |
 | Cline | `cline` | `/cerulean.md` (workflow) | `.clinerules/cerulean.md` | Global scope writes to `~/Documents/Cline/Rules` and `Workflows` |
-| GitHub Copilot (VS Code) | `copilot` | `/cerulean glacial` (prompt file) | `.github/instructions/cerulean.instructions.md` with `applyTo: "**"` | Project scope. For Copilot CLI use `--global`, which installs the skill to `~/.copilot/skills` |
-| Gemini CLI | `gemini` | `/cerulean glacial` (TOML command) | `--always-on` appends to `GEMINI.md` | With `gemini` on PATH and `--global`, runs `gemini extensions install`. Otherwise copies the TOML command and skill dir |
-| Qwen Code | `qwen` | `/cerulean glacial` (TOML command) | `--always-on` appends to `QWEN.md` | Same shape as Gemini CLI |
-| opencode | `opencode` | `/cerulean glacial` (`.opencode/command`, uses `$ARGUMENTS`) | `--always-on` appends to `AGENTS.md` | |
-| Roo Code | `roo` | `/cerulean glacial` (`.roo/commands`) | `.roo/rules/cerulean.md` | |
+| GitHub Copilot (VS Code) | `copilot` | `/cerulean` (prompt file) | `.github/instructions/cerulean.instructions.md` with `applyTo: "**"` | Project scope. For Copilot CLI use `--global`, which installs the skill to `~/.copilot/skills` |
+| Gemini CLI | `gemini` | `/cerulean` (TOML command) | `--always-on` appends to `GEMINI.md` | With `gemini` on PATH and `--global`, runs `gemini extensions install`. Otherwise copies the TOML command and skill dir |
+| Qwen Code | `qwen` | `/cerulean` (TOML command) | `--always-on` appends to `QWEN.md` | Same shape as Gemini CLI |
+| opencode | `opencode` | `/cerulean` (`.opencode/command`, uses `$ARGUMENTS`) | `--always-on` appends to `AGENTS.md` | |
+| Roo Code | `roo` | `/cerulean` (`.roo/commands`) | `.roo/rules/cerulean.md` | |
 | Kilo Code | `kilo` | `/cerulean.md` (workflow) | `.kilocode/rules/cerulean.md` | |
-| Continue | `continue` | say `cerulean glacial` | `.continue/rules/cerulean.md` with `alwaysApply: true` | Without `--always-on` the rule has `alwaysApply: false` plus a description |
-| Aider | `aider` | say `cerulean glacial` | Always on once read | Writes `.aider.cerulean.md`; pass it with `aider --read .aider.cerulean.md` or list it under `read:` in `.aider.conf.yml` |
-| Amp | `amp` | say `cerulean glacial` | `--always-on` appends to `AGENTS.md` (`~/.config/AGENTS.md` with `--global`) | |
-| Any `AGENTS.md` reader (Jules, Factory, Zed, Warp, ...) | `agents-md` | say `cerulean glacial` | Always on | Appends the block to `./AGENTS.md`. Project scope only |
-| Zed | `zed` | say `cerulean glacial` | Always on | Appends the block to `.rules` |
-| Goose | `goose` | say `cerulean glacial` | Always on | Appends to `.goosehints` (`~/.config/goose/.goosehints` with `--global`) |
-| JetBrains Junie | `junie` | say `cerulean glacial` | Always on | Appends to `.junie/guidelines.md` |
-| Trae | `trae` | say `cerulean glacial` | Always on | Appends to `.trae/rules/project_rules.md` |
-| Warp | `warp` | say `cerulean glacial` | Always on | Appends to `WARP.md` |
-| Augment | `augment` | say `cerulean glacial` | Always on | Writes `.augment/rules/cerulean.md` |
+| Continue | `continue` | say `cerulean` | `.continue/rules/cerulean.md` with `alwaysApply: true` | Without `--always-on` the rule has `alwaysApply: false` plus a description |
+| Aider | `aider` | say `cerulean` | Always on once read | Writes `.aider.cerulean.md`; pass it with `aider --read .aider.cerulean.md` or list it under `read:` in `.aider.conf.yml` |
+| Amp | `amp` | say `cerulean` | `--always-on` appends to `AGENTS.md` (`~/.config/AGENTS.md` with `--global`) | |
+| Any `AGENTS.md` reader (Jules, Factory, Zed, Warp, ...) | `agents-md` | say `cerulean` | Always on | Appends the block to `./AGENTS.md`. Project scope only |
+| Zed | `zed` | say `cerulean` | Always on | Appends the block to `.rules` |
+| Goose | `goose` | say `cerulean` | Always on | Appends to `.goosehints` (`~/.config/goose/.goosehints` with `--global`) |
+| JetBrains Junie | `junie` | say `cerulean` | Always on | Appends to `.junie/guidelines.md` |
+| Trae | `trae` | say `cerulean` | Always on | Appends to `.trae/rules/project_rules.md` |
+| Warp | `warp` | say `cerulean` | Always on | Appends to `WARP.md` |
+| Augment | `augment` | say `cerulean` | Always on | Writes `.augment/rules/cerulean.md` |
 | Everything else that reads Agent Skills | | depends on the agent | | `npx skills add kazo0/cerulean -a <agent>`; run `npx skills add --help` for the agent list |
 
 Turning it off is the same everywhere: `/cerulean off` where there is a command, or say "stop cerulean" or "normal mode".
